@@ -1,0 +1,117 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Security.Claims
+@{
+  var user = Context.User.Identity.Name;
+  var role = Context.User.Claims
+    .Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).SingleOrDefault();
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="~/favicon.ico">
+  <title>.NET 5</title>
+
+  <link rel="stylesheet" href="~/css/layout-internal.css" />
+  <link rel="stylesheet" href="~/css/font.css" />
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="~/interno/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/interno/css/simple-sidebar.css" />
+
+  <script src="~/js/site.js"></script>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/mask/dist/jquery.mask.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading text-white" style="font-weight: bold; background-color:#069bd1">.NET 5</div>
+
+      <div class="list-group list-group-flush">
+
+        <div>
+          <a class="list-group-item list-group-item-action bg-light" asp-action="LiberarAcesso" asp-controller="User">
+            <i class="fa fa-unlock-alt fa-2x"></i>
+            <span class="pl-2">
+              Pedidos Acesso
+            </span>
+          </a>
+          <a class="list-group-item list-group-item-action bg-light" asp-action="ListaUsuarios" asp-controller="User">
+            <i class="fa fa-users fa-2x"></i>
+            <span class="pl-2">
+              Usuários
+            </span>
+          </a>
+          <a class="list-group-item list-group-item-action bg-light" asp-action="Index" asp-controller="Interno">
+            <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
+            <span class="pl-2">
+              Voltar
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+
+        <button class="btn" id="menu-toggle">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active mr-5">
+              <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  @user
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" asp-controller="Interno" asp-action="AlterarSenha">Alterar Senha</a>
+                  <a class="dropdown-item" asp-controller="Home" asp-action="Logout">Sair</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid conteudo">
+        @RenderBody()
+      </div>
+
+
+      <!-- Menu Toggle Script -->
+      <script>
+        $("#menu-toggle").click(function (e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      </script>
+    </div>
+  </div>
+
+</body>
+
+</html>

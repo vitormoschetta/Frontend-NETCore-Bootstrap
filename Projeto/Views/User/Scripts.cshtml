@@ -1,0 +1,16 @@
+<script>
+
+    function Paginacao(pageNumber) {
+        var url = '@Url.Action("PaginationUser","User")';
+        Pagination(pageNumber, url);
+    }
+
+
+    $(document).ready(function () {
+        if ('@ViewBag.Mensagem' != "") {
+            $('.toast').toast('show');
+        }
+
+    });
+
+</script>

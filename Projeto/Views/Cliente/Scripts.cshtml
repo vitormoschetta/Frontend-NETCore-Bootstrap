@@ -1,0 +1,23 @@
+﻿<script>
+    function Filtro(filtro) {
+        var rota = '@Url.Action("PaginacaoComFiltro","Cliente")'
+
+        Filter(filtro, rota)
+    }
+
+    function Paginacao(pageNumber) {
+        var rota = '@Url.Action("PaginacaoComFiltro","Cliente")'
+        var filtro = document.getElementById('filtro').value
+
+        Pagination(pageNumber, filtro, rota)
+    }
+
+    function NumeroPagina(totalPages) {
+        var pagina = document.getElementById("numero-pagina").value;
+        if (pagina > totalPages || pagina < 1 || pagina == "")
+            return
+
+        Paginacao(pagina)
+    }
+
+</script>

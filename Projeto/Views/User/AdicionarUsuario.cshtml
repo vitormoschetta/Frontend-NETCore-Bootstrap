@@ -1,0 +1,67 @@
+@using Projeto.Models
+@model UserRegister
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="card">
+    <h6 class="card-header">
+        Adicionar Usuário
+    </h6>
+    <div class="card-body">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert">
+        </div>
+
+        <form asp-action="AdicionarUsuario" method="POST">
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    Nome
+                    <input type="text" asp-for="Username" class="form-control form-control-sm" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Perfil
+                    <select asp-for="Role" class="form-control form-control-sm">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Status
+                    <select asp-for="Active" class="form-control form-control-sm">
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativo</option>
+                    </select>
+                    <span asp-validation-for="Active" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Senha
+                    <input type="password" asp-for="Password" class="form-control form-control-sm" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Confirme a Nova Senha
+                    <input type="password" asp-for="ConfirmPassword" class="form-control form-control-sm" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <input type="submit" value="Concluir" class="btn btn-info botao-primario">
+                </div>
+                <div class="form-group col-md-2">
+                    <a asp-action="ListaUsuarios" class="btn btn-light">
+                        Fechar
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,63 @@
+@using Projeto.Models
+@model UserRegister
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+
+<link rel="stylesheet" href="~/css/login.css" />
+
+<body class="my-login-page" cz-shortcut-listen="true">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100">
+                <div class="card-wrapper" style="padding-top: 2em;">
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">Register</h4>
+                            <form asp-action="Register" method="POST" class="my-login-validation" novalidate="">
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+
+                                <div class="form-group">
+                                    <label for="name">Usuario</label>
+                                    <input asp-for="Username" class="form-control" required="" autofocus="">
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Senha</label>
+                                    <input asp-for="Password" type="password" class="form-control" required="">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Confirme a Senha</label>
+                                    <div style="position:relative" id="eye-password-0">
+                                        <input asp-for="ConfirmPassword" type="password" class="form-control"
+                                            required="" data-eye="" style="padding-right: 60px;">
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group m-0" style="padding-top: 3em;">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Register
+                                    </button>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    Já possui conta de usuário? <a asp-action="Login">Login</a>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <a asp-action="Index">Voltar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

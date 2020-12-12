@@ -1,0 +1,96 @@
+﻿@using Projeto.Util
+@model PaginatedList<Projeto.Models.Banco>
+
+@{
+    List<string> BancosPercentuais = ViewBag.ListaNomeBancoComPercentuaisCadastrados;
+}
+
+
+<!--========== ESSA TABELA É CHAMADA NO FORMULARIO Index  -->
+<table class="table table-hover table-sm tablesorter">
+    <thead>
+        <tr>
+            <th>NomeSistema</th>
+            <th>CNPJ</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            bool existePercentuais = false;
+            foreach (var nomeBanco in BancosPercentuais)
+            {
+                if (item.NomeSistema == nomeBanco)
+                    existePercentuais = true;
+            }
+            var corPercentuais = existePercentuais ? "#545B62" : "blue";
+            var cor = item.Ativo ? "black" : "red";
+
+
+            <tr style="color: @cor;">
+                <td>@item.NomeSistema</td>
+                <td class="cnpj">@item.Cnpj</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Idbanco" class="icon-editar mr-4">
+                        <i class="fa fa-edit fa-lg"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Idbanco" class="icon-excluir mr-4">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </a>
+                    <a asp-action="CreateOrUpdate" asp-controller="BancoPercentual" asp-route-nomeBanco="@item.NomeSistema"
+                        style="color: @corPercentuais">
+                        Percentuais
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- ////////////////// Controle de paginação ///////////////////////-->
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    var prev = Model.PageIndex - 1;
+    var next = Model.PageIndex + 1;
+}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled">
+            <a class="page-link" href="#" onclick="Paginacao(@prev)" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item @nextDisabled">
+            <a class="page-link" href="#" onclick="Paginacao(@next)">Next</a>
+        </li>
+        <li class="page-item">
+            <input type="text" id="numero-pagina" class="page-link" style="width: 5em;">
+        </li>
+        <li class="page-item">
+            <button class="page-link" onclick="NumeroPagina('@Model.TotalPages')">Ir</button>
+        </li>
+    </ul>
+    <div style="margin-left: 3em;">
+        Página @Model.PageIndex de @Model.TotalPages
+    </div>
+</nav>
+
+
+
+<!-- //////////////////// Ordenação da Tabela //////////////////////////-->
+<script src="~/lib/table-sorter/js/jquery.tablesorter.min.js"></script>
+<script>
+    $(function () {
+        $('table').tablesorter({
+            usNumberFormat: false,
+            sortReset: true,
+            sortRestart: true
+        });
+    });
+</script>
+
+
+<partial name="../Shared/_MascaraCpfCnpj" />

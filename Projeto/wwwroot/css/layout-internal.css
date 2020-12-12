@@ -1,0 +1,141 @@
+.navbar{
+    background-color:#069bd1 !important; 
+    font-size: 13px !important; 
+    font-weight: bold !important; 
+    height:50px !important;
+}
+
+.logo {
+    color: white !important; 
+    font-weight:bold !important;
+}
+
+body {
+    background-color: #EEEEEE !important;
+}
+
+.conteudo {    
+    padding-top: 1em;  
+    padding-left: 2em !important;  
+    padding-right: 2em !important;  
+    height: 100%;
+}
+
+
+.card .card-header {    
+    background-color:#F7F7F7;;
+}
+
+.card .card-body {
+    font-size: 12px;
+    background-color:#FFFFFF;;
+}
+
+
+.botao-primario {
+    color: white !important;
+    background-color: #069BD1 !important;    
+    border-color: #069BD1 !important;
+}
+
+
+.botao-primario:hover, .botao-primario:focus, .botao-primario:active, .botao-primario:active .open>.dropdown-toggle.botao-primario{
+    color: white !important;
+    background-color: #0777a0 !important;      
+    border-color: #0777a0 !important;  
+}
+
+.icon-editar {
+    color: #919496;         
+}
+
+.icon-editar :hover {
+    color:black;    
+}
+
+.icon-excluir {
+    color: #e96b97;  
+}
+
+.icon-excluir :hover {
+    color:red;    
+}
+
+.icon-liberar {
+    color: #919496; 
+    margin-right: 4em;           
+}
+
+.icon-liberar :hover {
+    color: #088e35;
+}
+
+.color-ativo {
+    color: green;
+}
+
+.color-inativo {
+    color: red;
+}
+
+
+
+/**********  MOSTRAR MENUS AO PASSAR O MOUSE EM CIMA **********/
+.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    transform: translate3d(5px, 28px, 0px);
+    /* distancia entre menu e btn */
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+}
+.dropdown {
+    display: inline-block;
+    /* deixa o LO do "tamanho do próprio texto" e não da largura inteira da tela*/
+    list-style: none;
+    /* retira a "bolinha" do LI*/
+}
+.outer {
+    overflow-y: auto;
+    height: 100%;
+}
+.outer table {
+    width: 100%;
+    border: 1px solid black;
+    border-spacing: 1px;
+}
+.outer table th {
+    text-align: left;
+    top: 0;
+    position: sticky;
+    background-color: white;
+}
+
+
+    
+/** OUTROS **/
+.wrapper { 
+    box-shadow: 1px 1px 10px #999; 
+    margin: auto; 
+    text-align: center; 
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px !important;
+    padding-top: 5px;
+}
+.scrolls { 
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height: 400px;
+    white-space: nowrap;
+} 
+
+.scrollsProcesso { 
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height: 400px;
+    white-space: nowrap;
+} 

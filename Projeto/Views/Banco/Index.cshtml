@@ -1,0 +1,34 @@
+﻿<div class="card">
+    <h6 class="card-header">
+        Banco
+    </h6>
+    <div class="card-body">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <div class="form-inline">
+                    <a asp-action="Create" class="btn botao-primario">
+                        Adicionar
+                    </a>
+                </div>
+            </div>
+            <div class="form-group col-md-9">
+                <div class="form-inline">
+                    <section class="col col-md-5">
+                        <input type="text" id="filtro" class="form-control" placeholder=" Pesquisar"
+                            onkeyup="Filtro(this.value)" />
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div id="carrega-modal"></div>
+
+        <div id="tabela-index">
+            <partial name="_TabelaIndex" />
+        </div>
+    </div>
+</div>
+
+
+<partial name="Scripts" />
+<partial name="../Shared/_Toasts" />

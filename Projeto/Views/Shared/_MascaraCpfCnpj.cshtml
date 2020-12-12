@@ -1,0 +1,40 @@
+<script>
+    function MascaraCpfCnpj() {
+        var options = {
+            onKeyPress: function (cpf, ev, el, op) {
+                var masks = ['000.000.000-000', '00.000.000/0000-00'];
+                $('.cpfCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+            }
+        }
+
+        $('.cpfCnpj').length > 11 ? $('.cpfCnpj').mask('00.000.000/0000-00', options) : $('.cpfCnpj').mask('000.000.000-00#', options);
+    }
+
+    function MascaraCpf() {
+        var options = {
+            onKeyPress: function (cpf, ev, el, op) {
+                var masks = ['000.000.000-000', '00.000.000/0000-00'];
+                $('.cpf').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+            }
+        }
+
+        $('.cpf').mask('000.000.000-00#', options);
+    }
+
+    function MascaraCnpj() {
+        var options = {
+            onKeyPress: function (cpf, ev, el, op) {
+                var masks = ['000.000.000-000', '00.000.000/0000-00'];
+                $('.cnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+            }
+        }
+
+        $('.cnpj').mask('00.000.000/0000-00', options);
+    }
+
+    $(document).ready(function () {
+        MascaraCpfCnpj();
+        MascaraCpf();
+        MascaraCnpj();
+    });    
+</script>

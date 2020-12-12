@@ -1,0 +1,53 @@
+@model Projeto.Models.Cliente
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="alert alert-primary" role="alert">
+            <h6>@ViewBag.Mensagem</h6>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Código</h6>
+                        <h6> @Model.Idcliente</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">Nome</h6>
+                        <h6>@Model.Nome</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">CNPJ</h6>
+                        <h6>@Model.CpfCnpj</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <a asp-action="CreateOrUpdate" asp-controller="DadosCliente" asp-route-Idcliente="@Model.Idcliente"
+                    asp-route-nome="@Model.Nome" class="btn btn-primary botao-primario">
+                    Cadastrar Outros Dados
+                </a>
+            </div>
+            <div class="form-group col-md-2">
+                <a asp-action="Index" class="btn btn-light">
+                    Fechar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

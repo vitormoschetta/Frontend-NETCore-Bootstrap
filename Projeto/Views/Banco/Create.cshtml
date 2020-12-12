@@ -1,0 +1,166 @@
+﻿@model Projeto.Models.Banco
+
+<div class="card">
+    <h6 class="card-header">
+        Cadastrar Banco
+    </h6>
+    <div class="card-body">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert">
+        </div>
+
+        <form asp-action="Create">
+
+            <input type="hidden" asp-for="@Model.Idbanco">
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    Código
+                    <input type="text" asp-for="Codigo" class="form-control form-control-sm" />
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    Nome
+                    <input type="text" asp-for="Nome" class="form-control form-control-sm" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    Nome Sistema
+                    <input type="text" asp-for="NomeSistema" class="form-control form-control-sm" />
+                    <span asp-validation-for="NomeSistema" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Cnpj
+                    <input type="text" asp-for="Cnpj" maxlength="25" class="form-control form-control-sm cnpj" />
+                    <span asp-validation-for="Cnpj" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    Endereço
+                    <input type="text" asp-for="Endereco" maxlength="100" class="form-control form-control-sm" />
+                    <span asp-validation-for="Endereco" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Cedente
+                    <input type="text" asp-for="Cedente" maxlength="15" class="form-control form-control-sm" />
+                    <span asp-validation-for="Cedente" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Carteira
+                    <input type="text" asp-for="Carteira" maxlength="4" class="form-control form-control-sm" />
+                    <span asp-validation-for="Carteira" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Espécie
+                    <input type="text" asp-for="Especie" maxlength="4" class="form-control form-control-sm" />
+                    <span asp-validation-for="Especie" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    Agência
+                    <input type="number" asp-for="Agencia" maxlength="10" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agencia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Digito Agência
+                    <input type="number" asp-for="DigitoAgencia" maxlength="1" class="form-control form-control-sm" />
+                    <span asp-validation-for="DigitoAgencia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Encargo
+                    <input type="text" asp-for="VlrEncargo" class="form-control form-control-sm money" />
+                    <span asp-validation-for=" VlrEncargo" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Escritório
+                    <input type="text" asp-for="VlrEscritorio" class="form-control form-control-sm money" />
+                    <span asp-validation-for="VlrEscritorio" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Boleto
+                    <input type="text" asp-for="VlrBoleto" class="form-control form-control-sm money" />
+                    <span asp-validation-for="VlrBoleto" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Notificação
+                    <input type="text" asp-for="VlrNotificacao" class="form-control form-control-sm money" />
+                    <span asp-validation-for="VlrNotificacao" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    Vlr Honorários
+                    <input type="text" asp-for="VlrHonorario" class="form-control form-control-sm money" />
+                    <span asp-validation-for="VlrHonorario" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Localizador
+                    <input type="text" asp-for="VlrLocalizador" class="form-control form-control-sm money" />
+                    <span asp-validation-for="VlrLocalizador" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Vlr Meta
+                    <input type="text" asp-for="VlrMeta" class="form-control money" />
+                    <span asp-validation-for="VlrMeta" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Dias Notificação
+                    <input type="number" asp-for="DiasNotificacao" class="form-control form-control-sm" />
+                    <span asp-validation-for="DiasNotificacao" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Dias Cartório
+                    <input type="number" asp-for="DiasCartorio" class="form-control form-control-sm" />
+                    <span asp-validation-for="DiasCartorio" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Nr. Lote
+                    <input type="number" asp-for="NumeroLote" class="form-control form-control-sm" />
+                    <span asp-validation-for="NumeroLote" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    Nr. Borderô
+                    <input type="number" asp-for="NumeroBordero" class="form-control form-control-sm" />
+                    <span asp-validation-for="NumeroBordero" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Nr. Notificação
+                    <input type="number" asp-for="NumeroNotificacao" class="form-control form-control-sm" />
+                    <span asp-validation-for="NumeroNotificacao" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Tipo
+                    <select id="Tipo" name="Tipo" class="form-control form-control-sm">
+                        <option value="Banco">Banco</option>
+                        <option value="Varejo">Varejo</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label class="col-md-5 control-label">Ativo</label>
+                    <input class="form-check-input" asp-for="Ativo" checked />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Gravar" class="btn btn-primary botao-primario">
+                </div>
+                <div class="form-group col-md-1">
+                    <a asp-action="Index" class="btn btn-light">
+                        Fechar
+                    </a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+<partial name="../Shared/_MascaraCpfCnpj" />
+<partial name="../Shared/_MascaraMonetaria" />

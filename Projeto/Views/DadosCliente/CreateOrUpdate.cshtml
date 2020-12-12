@@ -1,0 +1,94 @@
+@model Projeto.Models.DadosCliente
+
+<div class="card">
+    <h6 class="card-header">
+        Dados Cliente - @ViewBag.Nome
+    </h6>
+    <div class="card-body">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <form asp-action="CreateOrUpdate">
+
+            <div class="form-row">
+
+                <input type="hidden" asp-for="Idcliente">
+                <input type="hidden" asp-for="Iddadoscliente">
+
+                <div class="form-group col-md-2">
+                    RG
+                    <input type="text" asp-for="NrRg" class="form-control form-control-sm" />
+                    <span asp-validation-for="NrRg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Dt Emissao RG
+                    <input type="date" asp-for="DataEmissaoRg" class="form-control form-control-sm" />
+                    <span asp-validation-for="DataEmissaoRg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Emissor RG
+                    <input type="text" asp-for="OrgaoEmissorRg" class="form-control form-control-sm" />
+                    <span asp-validation-for="OrgaoEmissorRg" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Dt Nascimento
+                    <input type="date" asp-for="DataNascimento" class="form-control form-control-sm" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Nacionalidade
+                    <input type="text" asp-for="Naturalidade" class="form-control form-control-sm" />
+                    <span asp-validation-for="Naturalidade" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Estado Civil
+                    <input type="text" asp-for="EstadoCivil" class="form-control form-control-sm" />
+                    <span asp-validation-for="EstadoCivil" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    Nome Pai:
+                    <input type="text" asp-for="NomePai" class="form-control form-control-sm" />
+                    <span asp-validation-for="NomePai" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    Nome Mãe:
+                    <input type="text" asp-for="NomeMae" class="form-control form-control-sm" />
+                    <span asp-validation-for="NomeMae" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    Nome Conjuge
+                    <input type="text" asp-for="NomeConjuge" class="form-control form-control-sm" />
+                    <span asp-validation-for="NomeConjuge" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    Cargo
+                    <input type="text" asp-for="Cargo" class="form-control form-control-sm" />
+                    <span asp-validation-for="Cargo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    Local Serviço
+                    <input type="text" asp-for="LocalServico" class="form-control form-control-sm" />
+                    <span asp-validation-for="LocalServico" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Gravar" class="btn btn-primary botao-primario">
+                </div>
+                <div class="form-group col-md-1">
+                    <a asp-action="Index" asp-controller="Cliente" class="btn btn-light">
+                        Fechar
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+@model Projeto.Models.BancoPercentual
+
+<div class="card">
+    <h6 class="card-header">
+        Banco Percentual - @Model.NomeBanco
+    </h6>
+    <div class="card-body">
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+        <form asp-action="CreateOrUpdate">
+
+            <div class="form-row">
+
+                <input type="hidden" asp-for="Idbancopercentual">
+                <input type="hidden" asp-for="NomeBanco">
+
+                <div class="form-group col-md-2">
+                    Fase
+                    <select asp-for="Fase" class="form-control form-control-sm">
+                        <option value="0 - 30">0 - 30</option>
+                        <option value="31 - 60">31 - 60</option>
+                        <option value="61 - 90">61 - 90</option>
+                        <option value="91 - 120">91 - 120</option>
+                        <option value="121 - 150">121 - 150</option>
+                        <option value="151 - 180">151 - 180</option>
+                        <option value="181 - 240">181 - 240</option>
+                        <option value="241 - 270">241 - 270</option>
+                        <option value="271 - 360">271 - 360</option>
+                        <option value="361 - 365">361 - 365</option>
+                        <option value="366 - 600">366 - 600</option>
+                        <option value="601 - 720">601 - 720</option>
+                        <option value="721 - 840">721 - 840</option>
+                        <option value="841 - 1080">841 - 1080</option>
+                        <option value="1081 - 1440">1081 - 1440</option>
+                        <option value="1441 - 1800">1441 - 1800</option>
+                        <option value="1801 - 3600">1801 - 3600</option>
+                        <option value="3601 - 99999">3601 - 99999</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    Situação
+                    <select asp-for="Situacao" class="form-control form-control-sm">
+                        <option value="A Vista">A Vista</option>
+                        <option value="Parcelamento">Parcelamento</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    %Mínimo Sobre Principal
+                    <input type="text" asp-for="MinimoSobrePrincipal" class="form-control form-control-sm" />
+                    <span asp-validation-for="MinimoSobrePrincipal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Máximo Sobre Principal
+                    <input type="text" asp-for="MaximoSobrePrincipal" class="form-control form-control-sm" />
+                    <span asp-validation-for="MaximoSobrePrincipal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Mínimo Juros
+                    <input type="text" asp-for="MinimoJuros" class="form-control form-control-sm" />
+                    <span asp-validation-for="MinimoJuros" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Máximo Juros
+                    <input type="text" asp-for="MaximoJuros" class="form-control form-control-sm" />
+                    <span asp-validation-for="MaximoJuros" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Mínimo Multa
+                    <input type="text" asp-for="MinimoMulta" class="form-control form-control-sm" />
+                    <span asp-validation-for="MinimoMulta" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Máximo Multa
+                    <input type="text" asp-for="MaximoMulta" class="form-control form-control-sm" />
+                    <span asp-validation-for="MaximoMulta" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Mínimo Honorário
+                    <input type="text" asp-for="MinimoHonorario" class="form-control form-control-sm" />
+                    <span asp-validation-for="MinimoHonorario" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Máximo Honorário
+                    <input type="text" asp-for="MaximoHonorario" class="form-control form-control-sm" />
+                    <span asp-validation-for="MaximoHonorario" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    %Comissão
+                    <input type="text" asp-for="Comissao" class="form-control form-control-sm" />
+                    <span asp-validation-for="Comissao" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    Nr. Vezes
+                    <input type="number" asp-for="NrVezes" class="form-control form-control-sm" />
+                    <span asp-validation-for="NrVezes" class="text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" asp-for="Ativo" class="form-check-input">
+                    <label class="form-check-label">Ativo?</label>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Gravar" class="btn btn-primary botao-primario">
+                </div>
+                <div class="form-group col-md-1">
+                    <a asp-action="Index" asp-controller="Banco" class="btn btn-light">
+                        Fechar
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
