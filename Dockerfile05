@@ -1,0 +1,25 @@
+# seta o ambiente / ferramenta 
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+
+# cria diretorio 'app' na imagem
+WORKDIR /app
+
+# copia projeto fisico para o diretorio 'app' da imagem
+COPY Projeto/Projeto.csproj ./ 
+
+# executa restauracao de dependencias e pacotes
+RUN dotnet restore 
+
+# copia todos os arquivos fisicos para o diretorio 'app' da imagem
+COPY . ./
+
+# executa publicacao das dll em um novo diretório 'app/out' da imagem
+RUN dotnet publish -c Release -o out
+
+# executa build da aplicação
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "Projeto.dll"]
+
+#CMD ASPNETCORE_URLS=http://*:$PORT dotnet Projeto.dll
